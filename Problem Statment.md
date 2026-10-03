@@ -39,3 +39,44 @@ Build an **Enterprise IT Support Agent**. The system searches the trusted privat
 7. Grade web evidence
 8. If needed LLM rewrite query and retry
 9. Return answer, sources and decision tree
+
+## Example #1 Answer Found in the Company Knowledge Base
+
+**Employee:** "How do I connect to the company VPN from home?"
+
+The VPN procedure already exists in the private IT handbook. The system retrieves the relevant chunks from Pinecone, grades them as useful evidence, and generates the answer from the internal knowledge base. There is no reason to search the public web.
+
+**Easy explanation:** The AI first checks the company's own trusted documents. Because it finds the answer there, it stops and answers from those documents.
+
+## Example #2 Private Knowledge Is Not Enough
+
+**Employee:** "What is the latest Microsoft Teams outage guidance?"
+
+The private IT documents may not contain current outage information. The system retrieves private knowledge first, but the evidence grader identifies that the information is insufficient. LangGraph then routes the workflow to Tavily web search. The web evidence is graded before the final answer is produced.
+
+**Easy explanation:** The AI does not pretend that the company documents contain the answer. It recognizes the gap, searches an external source, checks that evidence, and then responds.
+
+# 4. What Makes This Agentic RAG?
+
+Normal RAG follows a mostly fixed path: **Question > Retrieve > Generate**. This project makes decisions during execution. It can route, retrieve, evaluate evidence, choose between private knowledge and web search, rewrite a weak query, retry, and then generate a grounded answer.
+
+| Normal RAG | Agentic RAG in this project |
+|------------|----------------------------|
+| Retrieve once | Retrieve, grade, and retry when necessary |
+| Fixed flow | Conditional LangGraph routing |
+| Generate after retrieval | Generate only after evidence evaluation |
+| Private KB only | Private KB first, web fallback when needed |
+
+# 5. Proposed Product Components
+
+- **LangGraph:** controls the agentic decision workflow.
+- **Pinecone:** stores the company's private embedded knowledge.
+- **HuggingFace embeddings:** convert document chunks and queries into vectors.
+- **Groq LLM:** performs routing, grading, query rewriting, and grounded generation.
+- **Tavily:** provides external web search when internal evidence is insufficient.
+- **FastAPI:** exposes the application through backend APIs.
+- **HTML/CSS/JavaScript:** gives employees a simple chat experience and displays the execution trace.
+- **SQLite audit logging:** records the decision path for basic debugging and transparency.
+- **Document ingestion:** lets authorized staff add PDF, TXT, Markdown, and DOCX knowledge.
+
+
