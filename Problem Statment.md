@@ -1,7 +1,7 @@
 # Enterprise IT Support Agent
 
 
-# Company Infromation
+# Company Information
 
 | Customer | Employees |      Use Case       |
 |----------|-----------|---------------------|
@@ -13,18 +13,18 @@ Coxginex has a large internal IT knowledge base containing VPN instructions, pas
 
 A traditional keyword search is often frustrating because it can return many documents instead of one clear answer. A normal chatbot creates another risk: it may answer confidently even when it does not have reliable company information. In addition, some questions depend on current public information that may not yet exist in the company's private knowledge base.
 
-**Bussness challenge**
+**Bassness challenge**
 ---
 
-Employees need fast answer but the company need those answers to be grounded, trustworthy, transperent and base on private company knoledge whenecer possible
+Employees need fast answer but the company need those answers to be grounded, trustworthy, transparent and base on private company knowledge whene'er possible
 
 # 2. Simple RAG is not Enough
 
 | Simple RAG                     | Problem in real world                                                               |
 |--------------------------------|-------------------------------------------------------------------------------------|
-| Question > Retrieve > Genetate | Retrieved chunks may be weak or unrelated but the model may still generate an answer|
-| Uses only private KB           | It cannot answer well when the required infromation is missing or outdated          |
-| No evidence decision           | The application does not decide whether the retrieved infromation is good enouth    |
+| Question > Retrieve > Generate | Retrieved chunks may be weak or unrelated but the model may still generate an answer|
+| Uses only private KB           | It cannot answer well when the required information is missing or outdated          |
+| No evidence decision           | The application does not decide whether the retrieved information is good enough    |
 
 # 3. Proposed Solution
 
