@@ -13,7 +13,6 @@ click==8.5.0
 cloudpickle==3.1.2
 colorama==0.4.6
 distro==1.9.0
--e file:///D:/Enterprise-IT-Support-Agent
 filelock==4.0.9
 frozenlist==1.8.0
 fsspec==2026.9.0
