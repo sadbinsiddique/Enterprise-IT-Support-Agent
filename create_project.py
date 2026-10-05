@@ -4,7 +4,7 @@ from pathlib import Path
 root = Path(".")
 
 # Software Architecture
-folders = ["app/api", "app/core", "app/rag", "app/services", "data", "templates", "static", "uploads", "tests", "notebook"]
+folders = ["app/api", "app/core", "app/rag", "app/services", "data", "data/sample_kb", "templates", "static", "uploads", "tests", "notebook"]
 files = ["app/main.py", "requirements.txt", "ingest_sample_kb.py", "run.py", ".env"]
 
 
