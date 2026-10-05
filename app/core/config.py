@@ -22,3 +22,6 @@ class Settings(BaseSettings):
     sample_kb_dir: str = str(BASE_DIR / "data" / "sample_kb")
     model_config = SettingsConfigDict(env_file=str(BASE_DIR / ".env"), extra="ignore")
     
+@lru_cache()
+def get_settings() -> Settings:
+    return Settings()
